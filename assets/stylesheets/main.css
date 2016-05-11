@@ -45,6 +45,39 @@ main {
 	font-size:120px;
 }
 
+
+#temp-type {
+	position:absolute;
+	font-size:50px;
+	top:25px;
+	/*right:-35px;*/
+	z-index: 9999;
+
+	-moz-user-select: -moz-none;
+   	-khtml-user-select: none;
+   	-webkit-user-select: none;
+   	-ms-user-select: none;
+   	user-select: none;
+}
+
+
+#temp-type-letter {
+	border-bottom:2px dashed #c4e2ed;
+	color: #c4e2ed;
+	transition: all 0.3s ease;
+}
+
+#temp-type-letter:hover {
+	color:#71b7d3;
+	border-bottom:2px dashed #71b7d3;
+	cursor: pointer;
+}
+
+#temp-type-letter:active {
+	color:#3c9dc3;
+	border-bottom:2px dashed #3c9dc3;
+}
+
 .feelsLike {
 	margin-top:-20px;
 	font-size:15px;
@@ -59,6 +92,12 @@ img {
 	padding:20px 20px 0px 20px;
 	margin:0 auto;
 	max-height:150px;
+
+	-moz-user-select: -moz-none;
+   	-khtml-user-select: none;
+   	-webkit-user-select: none;
+   	-ms-user-select: none;
+   	user-select: none;
 }
 
 .other-info {
