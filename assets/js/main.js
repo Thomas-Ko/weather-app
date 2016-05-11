@@ -1,7 +1,28 @@
 /*====================
 	MODEL
 ====================*/
+var model = {
 
+	currentWeather: {
+		location: null,
+		temp: {
+			c: null,
+			f: null,
+		},
+		feelsLike: {
+			c: null,
+			f: null,
+		},
+		weather: null,
+		wind: null,
+		precipitation: null,
+		humidity: null,
+		icon: {
+			name: null,
+			imgURL: null,
+		}
+	}
+};
 
 /*====================
 	CONTROLLER
@@ -13,6 +34,8 @@ controller = {
 		controller.getWeatherInfo();
 	},
 
+	//gets weather information from Weather Underground API
+	//found on https://www.wunderground.com/weather/api/
 	getWeatherInfo : function(){
 		$.ajax({
 			type: "GET",
