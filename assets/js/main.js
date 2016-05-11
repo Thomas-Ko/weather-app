@@ -98,8 +98,11 @@ view = {
 
 	init : function(){
 		$(document).ajaxStop(function () {
-			view.renderWeather(controller.getCurrentWeather());
+			var data = controller.getCurrentWeather();
+			view.renderWeather(data);
+			view.changeTempScale(data);
 		});
+
 	},
 
 	renderWeather: function(data){
@@ -113,6 +116,23 @@ view = {
 		$("#humidity").text(data.humidity);
 
 	},
+
+	//changes display from fahrenheit to celsius and vice versa
+	changeTempScale : function(data){
+		$("#temp-type-letter").on("click", function(){
+			
+			if($("#temp-type-letter").text()==="F"){
+				$("#temp").text(data.temp.c);
+				$("#feelsLike").text(data.feelsLike.c);
+				$("#temp-type-letter").text("C");
+			} else {
+				$("#temp").text(data.temp.f);
+				$("#feelsLike").text(data.feelsLike.f);
+				$("#temp-type-letter").text("F");
+			}
+
+		});
+	}
 }; //end view
 
 
