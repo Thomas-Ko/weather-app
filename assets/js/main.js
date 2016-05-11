@@ -32,15 +32,17 @@ var model = {
 controller = {
 
 	init: function(){
-		controller.getWeatherInfo();
+		controller.getWeatherData();
+		view.init();
 	},
 
 	//gets weather information from Weather Underground API
 	//found on https://www.wunderground.com/weather/api/
-	getWeatherInfo : function(){
+	getWeatherData : function(){
 		$.ajax({
 			type: "GET",
 
+			//looks up the user's location by ip address
 			url: "http://api.wunderground.com/api/32d6346cb727aad9/forecast/geolookup/conditions/q/autoip.json?",
 
 			dataType: "jsonp",
@@ -92,6 +94,26 @@ controller = {
 /*====================
 	VIEW
 ====================*/
+view = {
+
+	init : function(){
+		$(document).ajaxStop(function () {
+			view.renderWeather(controller.getCurrentWeather());
+		});
+	},
+
+	renderWeather: function(data){
+		
+		$("#location").text(data.location);
+		$("#temp").text(data.temp.f);
+		$("#feelsLike").text(data.feelsLike.f);
+		$("#weather").text(data.weather);
+		$("#wind").text(data.wind);
+		$("#precipitation").text(data.precipitation);
+		$("#humidity").text(data.humidity);
+
+	},
+}; //end view
 
 
 /*====================
