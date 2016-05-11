@@ -9,7 +9,7 @@
   	<title>Weather App</title>
 
    <!-- FONTS -->
-  	
+  	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
    <!-- STYLESHEETS -->
 
@@ -33,19 +33,45 @@
 </head>
 
 <body>
+	<div class="container">
+		<h1>Weather App</h1>
+		
+		<main>
+			<div id="location">Walpole, MA</div>
+			<div class="row main-info">
+				<div class="col-md-6">
+					<div id="temp">75.2</div>
+					<div class="feelsLike">Feels like <span id="feelsLike">75.2</span></div>
+				</div>
+				<div class="col-md-6">
+					
+					<img src="assets/img/example.png" class="img-responsive">
+					<p id="weather">Clear</p>
 
-	<span id="location"></span>
-	<br><span id="temp"></span>
-	<br><span id="feelsLike"></span>
-	<br><span id="weather"></span>
-	<br><span id="wind"></span>
-	<br><span id="precipitation"></span>
-	<br><span id="humidity"></span>
+				</div>
+			</div>
+
+			
+			
+			<div class="row other-info">
+				<div class="col-md-4 humidity">Humidty: <span id="humidity">18%</span></div>
+				<div class="col-md-4 precipitation"><span id="precipitation">Precip: 0.00</span> in.</div>
+				<div class="col-md-4 wind">Wind: <span id="wind">2.3</span> mph</div>
+			</div>
+			
+			
+		</main>
+
+
+
+	</div>
+
+	
 
 
 
 	<!-- MAIN javascript file -->
-	<script src="assets/js/main.js"></script> 
+	<!-- <script src="assets/js/main.js"></script>  -->
 
 </body>
 

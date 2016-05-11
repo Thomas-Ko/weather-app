@@ -1,0 +1,67 @@
+html {
+	height:100%;
+}
+
+body {
+	height:100%;
+	background:  #272a33;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+
+
+
+background: #232526; /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size:20px;
+	font-weight: bold;
+	color: #f5a714;
+}
+
+main {
+	text-align: center;
+	font-size:25px;
+	max-width:550px;
+	margin: 0 auto;
+	/*background: rgba(250, 250, 250, 0.2);*/
+}
+
+#location {
+	font-size:50px;
+	opacity:0.95;
+}
+
+.main-info {
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+#temp {
+	font-size:120px;
+}
+
+.feelsLike {
+	margin-top:-20px;
+	font-size:15px;
+}
+
+#weather {
+	font-size:15px;
+}
+
+img {
+	display:block;
+	padding:20px 20px 0px 20px;
+	margin:0 auto;
+	max-height:150px;
+}
+
+.other-info {
+	font-size:20px;
+	opacity:0.975;
+}
