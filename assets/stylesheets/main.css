@@ -21,18 +21,20 @@ h1 {
 	font-size:20px;
 	font-weight: bold;
 	color: #f5a714;
+	margin-bottom:50px;
 }
 
 main {
 	text-align: center;
 	font-size:25px;
-	max-width:550px;
+	max-width:670px;
 	margin: 0 auto;
 	/*background: rgba(250, 250, 250, 0.2);*/
 }
 
 #location {
-	font-size:50px;
+	font-size:40px;
+	line-height: 45px;
 	opacity:0.95;
 }
 
@@ -103,4 +105,41 @@ img {
 .other-info {
 	font-size:20px;
 	opacity:0.975;
+}
+
+
+@media screen and (max-width: 500px) {
+ 	h1 {
+ 		margin-bottom:25px;
+ 	}
+
+ 	#location {
+		font-size:25px;
+		line-height: 30px;
+	}
+
+	.main-info {
+		margin-top:0px;
+		margin-bottom:10px;
+	}
+
+	#temp {
+		font-size:80px;
+		margin-left:-30px;
+	}
+
+	img {
+	padding-top:;
+	}
+
+	.other-info {
+		font-size:17px;
+	}
+
+	#temp-type {
+		position:absolute;
+		font-size:40px;
+		top:15px;
+		
+	}
 }
