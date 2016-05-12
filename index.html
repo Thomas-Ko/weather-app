@@ -37,45 +37,52 @@
 		<h1>Weather App</h1>
 		
 		<main>
+			
+			<!-- LOCATION DIV: this is where location name and the settings icon reside -->
 			<div id="locationDiv">
 
-			<span id="location">Loading Location...</span>
+				<span id="location">San Francisco, CAl</span>
+				
+				<!-- settings icon -->
+				<i class="fa fa-cog" id="settings"  aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
+
+			  	<!-- Modal -->
+			  	<div class="modal fade" id="myModal" role="dialog">
+			    	<div class="modal-dialog modal-sm">
+			      		<div class="modal-content">
+			        		
+			        		<div class="modal-header">
+			          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			          			<h4 class="modal-title">Location Settings</h4>
+			        		</div>
+
+			        		<div class="modal-body">
 			
-			<i class="fa fa-cog" id="settings"  aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
+					          	<div class="form-group" id="zipCodeDiv">
+									<label for="zipCode">Enter Zip Code:</label>
+									<input type="text" class="form-control" id="zipCode" placeholder="">
+									
+								</div>
+								<span id="zipCodeMessage"></span>
 
-			<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button> -->
+			       	 		</div>
+			        
+				        	<div class="modal-footer">
+				          		<button type="button" id="cancelSettings" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+				          		<button type="button" id="setSettings" class="btn btn-default pull-right" >Set</button>
+				        	</div>
 
-			  <!-- Modal -->
-			  <div class="modal fade" id="myModal" role="dialog">
-			    <div class="modal-dialog modal-sm">
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			          <h4 class="modal-title">Settings</h4>
-			        </div>
-			        <div class="modal-body">
-			          
-			          	<div class="form-group">
-							<label for="zipCode">Enter Zip Code:</label>
-							<input type="text" class="form-control" id="zipCode">
-						</div>
-
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-			          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Set</button>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
+			      		</div>
+			    	</div>
+			 	</div> <!-- /.model -->
 
 			</div> <!-- /#location -->
 
 			<div class="row main-info">
 				
 				<div class="col-md-6">
-					<div><span id="temp">00.0</span><span id="temp-type">°<span class= "temp-type-letter" id="temp-type-letter">F</span></span></div>
-					<div class="feelsLike">Feels like <span id="feelsLike">00.0</span>°<span class="temp-type-letter">F</span></div>
+					<div><span id="temp">68</span><span id="temp-type">°<span class= "temp-type-letter" id="temp-type-letter">F</span></span></div>
+					<div class="feelsLike">Feels like <span id="feelsLike">00</span>°<span class="temp-type-letter">F</span></div>
 				</div>
 
 				<div class="col-md-6">
@@ -89,27 +96,20 @@
 			
 			<div class="row other-info">
 				<div class="col-md-4 humidity">Humidty: <span id="humidity">0%</span></div>
-				<div class="col-md-4 precipitation"><span id="precipitation">Precip: 0.00</span> in.</div>
+				<div class="col-md-4 precipitation">Precip: <span id="precipitation">0.00</span> in.</div>
 				<div class="col-md-4 wind">Wind: <span id="wind">0</span> mph</div>
 			</div>
-
-			<div>
-			02032
-			</div>
-			
-			
+	
 		</main>
 
-
-
-	</div>
+	</div>	<!-- /.container -->
 
 	
 
 
 
 	<!-- MAIN javascript file -->
-	<!-- <script src="assets/js/main.js"></script>  -->
+	<script src="assets/js/main.js"></script> 
 
 </body>
 

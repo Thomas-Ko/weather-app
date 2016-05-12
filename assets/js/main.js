@@ -59,6 +59,27 @@ controller = {
 		});
 	},
 
+	getWeatherData2 : function(zipcode){
+		$.ajax({
+			type: "GET",
+
+			//looks up the user's location by ip address
+			url: "http://api.wunderground.com/api/32d6346cb727aad9/forecast/geolookup/conditions/q/" +zipcode+ ".json",
+
+			dataType: "jsonp",
+
+			success: function( response ) {
+				console.log(response);
+
+	        	// var obj = JSON.parse(response);
+	        	/*I do not need to run the above code because jQuery automatically parses the datatype if it is jsonp.
+	        	Running the above code would return an error.*/
+
+	        	controller.setCurrentWeather(response.current_observation);
+			},
+		});
+	},
+
 	setCurrentWeather: function(data) {
 		
 		// var weather = obj.current_observation;
@@ -102,7 +123,7 @@ view = {
 			view.renderWeather(data);
 			view.changeTempScale(data);
 		});
-
+		view.changeZipCode();
 	},
 
 	renderWeather: function(data){
@@ -132,6 +153,43 @@ view = {
 			}
 
 		});
+	},
+
+	changeZipCode: function(){
+		$("#setSettings").on("click", function(){
+			// var zipcode = $("#zipCode").val();
+			// console.log(zipcode);
+			// controller.getWeatherData2(zipcode);
+			
+			$("#zipCode").attr("placeholder", "");
+			var zipcode = $("#zipCode").val();
+			
+			
+			if (zipcode.length!=5 || isNaN(zipcode)){
+				
+				$("#zipCode").val("");
+				$("#zipCode").attr("placeholder", "Zip Code must be 5 numbers long");
+				return;
+			} else {
+				controller.getWeatherData2(zipcode);
+				$('#myModal').modal('toggle');
+				$("#zipCode").val("");
+			}
+		});
+	},
+
+	alertInvalidZipCode: function(){
+		var zipcode = $("#zipCode").val();
+		
+		if (zipcode.length!=5){
+			var message = "Your zip code does not contain 5 numbers.";
+			$("zipCodeMessage").text(message);
+			return;
+		} else {
+			$("zipCodeMessage").text("");
+			console.log(zipcode);
+			controller.getWeatherData2(zipcode);
+		}
 	}
 }; //end view
 
