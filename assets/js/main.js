@@ -126,8 +126,8 @@ view = {
 			view.renderImg(data.icon.name);
 			view.changeTempScale(data);
 		});
+		view.onSettingsClick();
 		view.setSettings();
-		view.cancelSettings();
 	},
 
 	renderWeather: function(data){
@@ -190,10 +190,18 @@ view = {
 		});
 	},
 
+	//clears placeholder and values from input when user goes to settings
+	onSettingsClick: function(){
+		$("#settings").on("click",function(){
+			$("#zipCode").attr("placeholder", "");
+			$("#zipCode").val("");
+		});
+	},
+
+	//retrieves weather information when user enters zip code
 	setSettings: function(){
 		$("#setSettings").on("click", function(){
 			
-			$("#zipCode").attr("placeholder", "");
 			var zipcode = $("#zipCode").val();
 			
 			if (zipcode.length!=5 || isNaN(zipcode)){
@@ -202,20 +210,13 @@ view = {
 				return;
 			} else {
 				controller.getZipWeatherData(zipcode);
-				$('#myModal').modal('toggle');
-				$("#zipCode").val("");
-				$("#zipCode").attr("placeholder", "");
+				$('#myModal').modal('toggle');	//closes modal
 				view.init();
 			}
 		});
 	},
 
-	cancelSettings: function(){
-		$("#cancelSettings, .close", "#myModal").on("click",function(){
-			$("#zipCode").attr("placeholder", "");
-			$("#zipCode").val("");
-		});
-	}
+	
 }; //end view
 
 
