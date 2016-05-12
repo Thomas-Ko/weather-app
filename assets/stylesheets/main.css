@@ -166,13 +166,15 @@ label {
 
 #weather {
 	font-size:15px;
+	margin-top:-0px;
 }
 
 img {
 	display:block;
-	padding:20px 20px 0px 20px;
+	padding: 0px 0px 0px 0px;
 	margin:0 auto;
-	max-height:150px;
+	height:150px;
+	width:150px;
 
 	-moz-user-select: -moz-none;
    	-khtml-user-select: none;
@@ -195,6 +197,11 @@ img {
  		margin-bottom:25px;
  	}
 
+ 	#locationDiv {
+		padding-left:5px;
+		padding-right:5px;
+	}
+
  	#location {
 		font-size:25px;
 		line-height: 30px;
@@ -203,7 +210,7 @@ img {
 	#settings {
 		
 		right:5px;
-		top:4px;
+		top:-50px;
 	}
 
 	.main-info {

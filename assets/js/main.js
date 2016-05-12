@@ -123,6 +123,7 @@ view = {
 		$(document).ajaxStop(function () {
 			var data = controller.getCurrentWeather();
 			view.renderWeather(data);
+			view.renderImg(data.icon.name);
 			view.changeTempScale(data);
 		});
 		view.setSettings();
@@ -140,7 +141,36 @@ view = {
 		$("#humidity").text(data.humidity);
 
 		$(".temp-type-letter").text("F");
+	},
 
+	renderImg: function(data){
+		var img ="";
+		
+		switch(data){
+			case "chanceflurries": 	img = "chanceflurries"; break;
+			case "chancerain": 		img = "chancerain"; 	break;
+			case "chancesleet": 	img = "chancesleet";	break;
+			case "chancesnow": 		img = "chancesnow"; 	break;
+			case "chancetstorms": 	img = "chancetstorms"; 	break;
+			case "clear": 			img = "clear"; 			break;
+			case "cloudy": 			img = "cloudy"; 		break;
+			case "flurries": 		img = "flurries"; 		break;
+			case "fog": 			img = "fog"; 			break;
+			case "hazy": 			img = "hazy"; 			break;
+			case "mostlycloudy": 	img = "mostlycloudy"; 	break;
+			case "mostlysunny": 	img = "mostlysunny"; 	break;
+			case "partlycloudy": 	img = "partlycloudy"; 	break;
+			case "partlysunny": 	img = "partlysunny"; 	break;
+			case "sleet": 			img = "sleet"; 			break;
+			case "rain": 			img = "rain"; 			break;
+			case "snow": 			img = "snow"; 			break;
+			case "sunny": 			img = "sunny"; 			break;
+			case "tstorms": 		img = "tstorms"; 		break;
+			case "partlycloudy": 	img = "partlycloudy"; 	break;
+			default: 				img = "unknown";
+		}
+
+		$('img').attr("src", "assets/img/"+ img +".svg");
 	},
 
 	//changes display from fahrenheit to celsius and vice versa
@@ -174,13 +204,14 @@ view = {
 				controller.getZipWeatherData(zipcode);
 				$('#myModal').modal('toggle');
 				$("#zipCode").val("");
+				$("#zipCode").attr("placeholder", "");
 				view.init();
 			}
 		});
 	},
 
 	cancelSettings: function(){
-		$("#cancelSettings, .close").on("click",function(){
+		$("#cancelSettings, .close", "#myModal").on("click",function(){
 			$("#zipCode").attr("placeholder", "");
 			$("#zipCode").val("");
 		});
