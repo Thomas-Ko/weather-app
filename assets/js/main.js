@@ -32,13 +32,13 @@ var model = {
 controller = {
 
 	init: function(){
-		controller.getWeatherData();
+		controller.getInitialWeatherData();
 		view.init();
 	},
 
-	//gets weather information from Weather Underground API
+	//gets initial weather information from Weather Underground API
 	//found on https://www.wunderground.com/weather/api/
-	getWeatherData : function(){
+	getInitialWeatherData : function(){
 		$.ajax({
 			type: "GET",
 
@@ -59,7 +59,8 @@ controller = {
 		});
 	},
 
-	getWeatherData2 : function(zipcode){
+	//gets weather information by zip code; used in view.setSettings function
+	getZipWeatherData : function(zipcode){
 		$.ajax({
 			type: "GET",
 
@@ -76,6 +77,7 @@ controller = {
 	        	Running the above code would return an error.*/
 
 	        	controller.setCurrentWeather(response.current_observation);
+	   			
 			},
 		});
 	},
@@ -87,12 +89,12 @@ controller = {
 		model.currentWeather= {
 			location: data.display_location.full,
 			temp: {
-				c: data.temp_c,
-				f: data.temp_f,
+				c: Math.round(data.temp_c),
+				f: Math.round(data.temp_f),
 			},
 			feelsLike: {
-				c: data.feelslike_c,
-				f: data.feelslike_f,
+				c: Math.round(data.feelslike_c),
+				f: Math.round(data.feelslike_f),
 			},
 			weather: data.weather,
 			wind: data.wind_mph,
@@ -123,7 +125,8 @@ view = {
 			view.renderWeather(data);
 			view.changeTempScale(data);
 		});
-		view.changeZipCode();
+		view.setSettings();
+		view.cancelSettings();
 	},
 
 	renderWeather: function(data){
@@ -136,13 +139,15 @@ view = {
 		$("#precipitation").text(data.precipitation);
 		$("#humidity").text(data.humidity);
 
+		$(".temp-type-letter").text("F");
+
 	},
 
 	//changes display from fahrenheit to celsius and vice versa
 	changeTempScale : function(data){
 		$("#temp-type-letter").on("click", function(){
 			
-			if($("#temp-type-letter").text()==="F"){
+			if($("#temp-type-letter").text()=="F"){
 				$("#temp").text(data.temp.c);
 				$("#feelsLike").text(data.feelsLike.c);
 				$(".temp-type-letter").text("C");
@@ -155,41 +160,30 @@ view = {
 		});
 	},
 
-	changeZipCode: function(){
+	setSettings: function(){
 		$("#setSettings").on("click", function(){
-			// var zipcode = $("#zipCode").val();
-			// console.log(zipcode);
-			// controller.getWeatherData2(zipcode);
 			
 			$("#zipCode").attr("placeholder", "");
 			var zipcode = $("#zipCode").val();
 			
-			
 			if (zipcode.length!=5 || isNaN(zipcode)){
-				
 				$("#zipCode").val("");
 				$("#zipCode").attr("placeholder", "Zip Code must be 5 numbers long");
 				return;
 			} else {
-				controller.getWeatherData2(zipcode);
+				controller.getZipWeatherData(zipcode);
 				$('#myModal').modal('toggle');
 				$("#zipCode").val("");
+				view.init();
 			}
 		});
 	},
 
-	alertInvalidZipCode: function(){
-		var zipcode = $("#zipCode").val();
-		
-		if (zipcode.length!=5){
-			var message = "Your zip code does not contain 5 numbers.";
-			$("zipCodeMessage").text(message);
-			return;
-		} else {
-			$("zipCodeMessage").text("");
-			console.log(zipcode);
-			controller.getWeatherData2(zipcode);
-		}
+	cancelSettings: function(){
+		$("#cancelSettings, .close").on("click",function(){
+			$("#zipCode").attr("placeholder", "");
+			$("#zipCode").val("");
+		});
 	}
 }; //end view
 
