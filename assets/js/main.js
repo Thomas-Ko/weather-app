@@ -124,11 +124,11 @@ view = {
 			if($("#temp-type-letter").text()==="F"){
 				$("#temp").text(data.temp.c);
 				$("#feelsLike").text(data.feelsLike.c);
-				$("#temp-type-letter").text("C");
+				$(".temp-type-letter").text("C");
 			} else {
 				$("#temp").text(data.temp.f);
 				$("#feelsLike").text(data.feelsLike.f);
-				$("#temp-type-letter").text("F");
+				$(".temp-type-letter").text("F");
 			}
 
 		});
@@ -141,3 +141,10 @@ view = {
 ====================*/
 
 controller.init();
+
+
+//TO DO
+//Change image icon for correct weather
+//change background for mobile
+//change css for mobile;
+//add zip code functionability
