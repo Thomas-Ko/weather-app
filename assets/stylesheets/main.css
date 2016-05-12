@@ -32,6 +32,64 @@ main {
 	/*background: rgba(250, 250, 250, 0.2);*/
 }
 
+#locationDiv {
+	/*background:green;*/
+	position:relative;
+}
+
+#settings {
+	position:absolute;
+	right:10px;
+	top:10px;
+	color: #c4e2ed;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+
+#settings:hover {
+	color:#71b7d3;
+	/*cursor: pointer;*/
+}
+
+#settings:active {
+	color:#3c9dc3;
+}
+
+#myModal {
+	color:black;
+	text-align:left;
+	/*font-family: 'Montserrat', sans-serif;*/
+}
+
+.modal-content{
+	/*background-color:#f2f2f3;*/
+	border-radius:2px;
+}
+
+.modal-header {
+	padding-bottom:0px;
+	border-bottom:0px;
+}
+
+.modal-body {
+	color:#c2c2c2;
+	font-size:14px;
+}
+
+.form-group {
+	margin-bottom:0px;
+}
+
+label {
+	font-weight:normal;
+}
+
+.modal-footer {
+	border-top:0px;
+	padding-top:0px;
+}
+
 #location {
 	font-size:40px;
 	line-height: 45px;
@@ -53,7 +111,7 @@ main {
 	font-size:50px;
 	top:25px;
 	/*right:-35px;*/
-	z-index: 9999;
+	z-index: 99;
 
 	-moz-user-select: -moz-none;
    	-khtml-user-select: none;
@@ -106,6 +164,9 @@ img {
 	font-size:20px;
 	opacity:0.975;
 }
+
+
+
 
 
 @media screen and (max-width: 500px) {

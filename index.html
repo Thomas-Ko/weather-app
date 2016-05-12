@@ -37,7 +37,40 @@
 		<h1>Weather App</h1>
 		
 		<main>
-			<div id="location">Loading Location...</div>
+			<div id="locationDiv">
+
+			<span id="location">Loading Location...</span>
+			
+			<i class="fa fa-cog" id="settings"  aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
+
+			<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button> -->
+
+			  <!-- Modal -->
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog modal-sm">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h4 class="modal-title">Settings</h4>
+			        </div>
+			        <div class="modal-body">
+			          
+			          	<div class="form-group">
+							<label for="zipCode">Enter Zip Code:</label>
+							<input type="text" class="form-control" id="zipCode">
+						</div>
+
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+			          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Set</button>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+
+			</div> <!-- /#location -->
+
 			<div class="row main-info">
 				
 				<div class="col-md-6">
@@ -58,6 +91,10 @@
 				<div class="col-md-4 humidity">Humidty: <span id="humidity">0%</span></div>
 				<div class="col-md-4 precipitation"><span id="precipitation">Precip: 0.00</span> in.</div>
 				<div class="col-md-4 wind">Wind: <span id="wind">0</span> mph</div>
+			</div>
+
+			<div>
+			02032
 			</div>
 			
 			
