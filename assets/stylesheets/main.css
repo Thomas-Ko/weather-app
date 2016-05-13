@@ -8,10 +8,7 @@ body {
 	color: white;
 	font-family: 'Montserrat', sans-serif;
 
-	background: #232526; /* fallback for old browsers */
-	background: -webkit-linear-gradient(bottom, #232526, #414345);
-	background: -o-linear-gradient(bottom, #232526, #414345);
-	background: linear-gradient(to top, #232526, #414345); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+	background: #282B33;
 }
 
 h1 {
@@ -200,6 +197,19 @@ img {
 
 
 /*=========================
+	FOOTER
+=========================*/
+footer {
+	opacity:1;
+	color: #a5d4f3;
+	text-align: center;
+	margin-top:100px;
+	font-size:13px;
+	margin-bottom:20px;
+
+}
+
+/*=========================
 	MEDIA QUERIES
 =========================*/
 
@@ -246,6 +256,9 @@ img {
 		position:absolute;
 		font-size:35px;
 		top:23px;
-		
+	}
+
+	footer {
+		margin-top:50px;
 	}
 }
