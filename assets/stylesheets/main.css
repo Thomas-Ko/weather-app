@@ -8,13 +8,10 @@ body {
 	color: white;
 	font-family: 'Montserrat', sans-serif;
 
-
-
 	background: #232526; /* fallback for old browsers */
-background: -webkit-linear-gradient(bottom, #232526, #414345);
-background: -o-linear-gradient(bottom, #232526, #414345);
-background: linear-gradient(to top, #232526, #414345); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
+	background: -webkit-linear-gradient(bottom, #232526, #414345);
+	background: -o-linear-gradient(bottom, #232526, #414345);
+	background: linear-gradient(to top, #232526, #414345); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
 }
 
 h1 {
@@ -33,6 +30,11 @@ main {
 	/*background: rgba(250, 250, 250, 0.2);*/
 }
 
+
+/*=========================
+	LOCATION DIV
+=========================*/
+
 #locationDiv {
 	/*background:green;*/
 	position:relative;
@@ -40,6 +42,13 @@ main {
 	padding-right:25px;
 }
 
+#location {
+	font-size:40px;
+	line-height: 45px;
+	opacity:0.95;
+}
+
+/*===== SETTINGS =====*/
 #settings {
 	position:absolute;
 	right:10px;
@@ -49,24 +58,21 @@ main {
 	transition: all 0.3s ease;
 }
 
-
 #settings:hover {
 	color:#71b7d3;
-	/*cursor: pointer;*/
 }
 
 #settings:active {
 	color:#3c9dc3;
 }
 
+/*===== MODAL =====*/
 #myModal {
 	color:black;
 	text-align:left;
-	/*font-family: 'Montserrat', sans-serif;*/
 }
 
 .modal-content{
-	/*background-color:#f2f2f3;*/
 	border-radius:2px;
 }
 
@@ -79,6 +85,11 @@ main {
 .modal-body {
 	color:#c2c2c2;
 	font-size:14px;
+}
+
+.modal-footer {
+	border-top:0px;
+	padding-top:0px;
 }
 
 .form-group {
@@ -106,16 +117,10 @@ label {
 	color:#999999 !important; 
 }
 
-.modal-footer {
-	border-top:0px;
-	padding-top:0px;
-}
 
-#location {
-	font-size:40px;
-	line-height: 45px;
-	opacity:0.95;
-}
+/*=========================
+	MAIN INFO
+=========================*/
 
 .main-info {
 	margin-top:25px;
@@ -125,7 +130,6 @@ label {
 #temp {
 	font-size:120px;
 }
-
 
 #temp-type {
 	position:absolute;
@@ -164,6 +168,7 @@ label {
 	font-size:15px;
 }
 
+/*=====IMG SECTION=====*/
 #weather {
 	font-size:15px;
 	margin-top:-0px;
@@ -183,14 +188,20 @@ img {
    	user-select: none;
 }
 
-.other-info {
+
+/*=========================
+	OTHER INFO
+=========================*/
+
+#other-info {
 	font-size:20px;
 	opacity:0.975;
 }
 
 
-
-
+/*=========================
+	MEDIA QUERIES
+=========================*/
 
 @media screen and (max-width: 500px) {
  	h1 {
@@ -224,7 +235,7 @@ img {
 	}
 
 	img {
-	padding-top:;
+		margin-top:20px;
 	}
 
 	.other-info {

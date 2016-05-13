@@ -41,7 +41,7 @@
 			<!-- LOCATION DIV: this is where location name and the settings icon reside -->
 			<div id="locationDiv">
 
-				<span id="location">San Francisco, CAl</span>
+				<span id="location">Loading Weather...</span>
 				
 				<!-- settings icon -->
 				<i class="fa fa-cog" id="settings"  aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
@@ -60,8 +60,7 @@
 			
 					          	<div class="form-group" id="zipCodeDiv">
 									<label for="zipCode">Enter Zip Code:</label>
-									<input type="text" class="form-control" id="zipCode" placeholder="">
-									
+									<input type="text" class="form-control" id="zipCode" placeholder="">	
 								</div>
 								<span id="zipCodeMessage"></span>
 
@@ -81,20 +80,18 @@
 			<div class="row main-info">
 				
 				<div class="col-md-6">
-					<div><span id="temp">68</span><span id="temp-type">°<span class= "temp-type-letter" id="temp-type-letter">F</span></span></div>
+					<div><span id="temp">00</span><span id="temp-type">°<span class= "temp-type-letter" id="temp-type-letter">F</span></span></div>
 					<div class="feelsLike">Feels like <span id="feelsLike">00</span>°<span class="temp-type-letter">F</span></div>
 				</div>
 
 				<div class="col-md-6">
-					<img src="assets/img/rain.svg" class="img-responsive">
-					<p id="weather">Loading</p>
+					<img src="assets/img/unknown.svg" class="img-responsive">
+					<p id="weather">Loading...</p>
 
 				</div>
 			</div>
 
-			
-			
-			<div class="row other-info">
+			<div class="row" id="other-info">
 				<div class="col-md-4 humidity">Humidty: <span id="humidity">0%</span></div>
 				<div class="col-md-4 precipitation">Precip: <span id="precipitation">0.00</span> in.</div>
 				<div class="col-md-4 wind">Wind: <span id="wind">0</span> mph</div>
@@ -104,12 +101,8 @@
 
 	</div>	<!-- /.container -->
 
-	
-
-
-
 	<!-- MAIN javascript file -->
-	<script src="assets/js/main.js"></script> 
+	<!-- <script src="assets/js/main.js"></script>  -->
 
 </body>
 
