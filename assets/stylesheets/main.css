@@ -11,14 +11,6 @@ body {
 	background: #282B33;
 }
 
-h1 {
-	text-transform: uppercase;
-	font-size:20px;
-	font-weight: bold;
-	color: #f5a714;
-	margin-bottom:50px;
-}
-
 main {
 	text-align: center;
 	font-size:25px;
@@ -27,6 +19,31 @@ main {
 	/*background: rgba(250, 250, 250, 0.2);*/
 }
 
+/*=========================
+	NAV
+=========================*/
+
+nav {
+	margin-bottom:20px;
+	margin-top:10px;
+}
+h1 {
+	text-transform: uppercase;
+	font-size:20px;
+	font-weight: bold;
+	color: #f5a714;
+	margin-right:50px;
+	margin-bottom:10px;
+}
+
+#logo-text {
+	opacity:0.6;
+}
+
+#logo{
+	margin:0;
+	border:1px solid rgba(255, 255, 255, 0.3);
+}
 
 /*=========================
 	LOCATION DIV
@@ -171,7 +188,7 @@ label {
 	margin-top:-0px;
 }
 
-img {
+#weatherImg {
 	display:block;
 	padding: 0px 0px 0px 0px;
 	margin:0 auto;
@@ -214,7 +231,7 @@ footer {
 =========================*/
 
 @media screen and (max-width: 500px) {
- 	h1 {
+ 	nav {
  		margin-bottom:25px;
  	}
 
@@ -231,7 +248,7 @@ footer {
 	#settings {
 		
 		right:5px;
-		top:-50px;
+		top:-130px;
 	}
 
 	.main-info {
@@ -244,7 +261,7 @@ footer {
 		/*margin-left:-30px;*/
 	}
 
-	img {
+	#weatherImg {
 		margin-top:20px;
 	}
 
