@@ -3,6 +3,7 @@
 ====================*/
 var model = {
 
+	//current weather data; nulls will be replaced with info from API call (see controller.getInitialWeatherData and controller.getZipWeatherData)
 	currentWeather: {
 		location: null,
 		temp: {
@@ -24,6 +25,7 @@ var model = {
 	}
 
 };  //end model
+
 
 /*====================
 	CONTROLLER
@@ -48,14 +50,17 @@ controller = {
 			dataType: "jsonp",
 
 			success: function( response ) {
-				console.log(response);
-
 	        	// var obj = JSON.parse(response);
 	        	/*I do not need to run the above code because jQuery automatically parses the datatype if it is jsonp.
 	        	Running the above code would return an error.*/
 
 	        	controller.setCurrentWeather(response.current_observation);
 			},
+
+			error: function(){
+         		$("#location").text("Error processing request");
+        	}
+      
 		});
 	},
 
@@ -70,21 +75,16 @@ controller = {
 			dataType: "jsonp",
 
 			success: function( response ) {
-				console.log(response);
-
-	        	// var obj = JSON.parse(response);
-	        	/*I do not need to run the above code because jQuery automatically parses the datatype if it is jsonp.
-	        	Running the above code would return an error.*/
-
 	        	controller.setCurrentWeather(response.current_observation);
-	   			
 			},
+
+			error: function(){
+         		$("#location").text("Error processing request");
+        	}
 		});
 	},
 
 	setCurrentWeather: function(data) {
-		
-		// var weather = obj.current_observation;
 
 		model.currentWeather= {
 			location: data.display_location.full,
@@ -117,6 +117,7 @@ controller = {
 /*====================
 	VIEW
 ====================*/
+
 view = {
 
 	init : function(){
@@ -130,6 +131,7 @@ view = {
 		view.setSettings();
 	},
 
+	//renders all weather information on screen
 	renderWeather: function(data){
 		
 		$("#location").text(data.location);
@@ -143,6 +145,7 @@ view = {
 		$(".temp-type-letter").text("F");
 	},
 
+	//finds and renders correct weather image
 	renderImg: function(data){
 		var img ="";
 		
@@ -173,7 +176,7 @@ view = {
 		$('img').attr("src", "assets/img/"+ img +".svg");
 	},
 
-	//changes display from fahrenheit to celsius and vice versa
+	//changes display from fahrenheit to celsius and vice versa on click
 	changeTempScale : function(data){
 		$("#temp-type-letter").on("click", function(){
 			
@@ -216,7 +219,6 @@ view = {
 		});
 	},
 
-	
 }; //end view
 
 
@@ -225,10 +227,3 @@ view = {
 ====================*/
 
 controller.init();
-
-
-//TO DO
-//Change image icon for correct weather
-//change background for mobile
-//change css for mobile;
-//add zip code functionability
