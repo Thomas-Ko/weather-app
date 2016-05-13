@@ -75,7 +75,9 @@ controller = {
 			dataType: "jsonp",
 
 			success: function( response ) {
+	        	console.log("ZIP DATA: " +response);
 	        	controller.setCurrentWeather(response.current_observation);
+
 			},
 
 			error: function(){
@@ -85,26 +87,29 @@ controller = {
 	},
 
 	setCurrentWeather: function(data) {
-
-		model.currentWeather= {
-			location: data.display_location.full,
-			temp: {
-				c: Math.round(data.temp_c),
-				f: Math.round(data.temp_f),
-			},
-			feelsLike: {
-				c: Math.round(data.feelslike_c),
-				f: Math.round(data.feelslike_f),
-			},
-			weather: data.weather,
-			wind: data.wind_mph,
-			precipitation: data.precip_today_in,
-			humidity: data.relative_humidity,
-			icon: {
-				name: data.icon,
-				imgURL: data.icon_url,
-			}
-		};
+		if(data === undefined){
+			$("#location").text("Location not found");
+		} else {
+			model.currentWeather= {
+				location: data.display_location.full,
+				temp: {
+					c: Math.round(data.temp_c),
+					f: Math.round(data.temp_f),
+				},
+				feelsLike: {
+					c: Math.round(data.feelslike_c),
+					f: Math.round(data.feelslike_f),
+				},
+				weather: data.weather,
+				wind: data.wind_mph,
+				precipitation: data.precip_today_in,
+				humidity: data.relative_humidity,
+				icon: {
+					name: data.icon,
+					imgURL: data.icon_url,
+				}
+			};
+		}
 	},
 
 	getCurrentWeather: function() {
@@ -214,7 +219,16 @@ view = {
 			} else {
 				controller.getZipWeatherData(zipcode);
 				$('#myModal').modal('toggle');	//closes modal
+
+				//three lines below make sure modal background is gone
+				$('#myModal').modal('hide');
+				$('body').removeClass('modal-open');
+				$('.modal-backdrop').remove();
+
+				$( "#setSettings").unbind( "click" );
+				
 				view.init();
+
 			}
 		});
 	},
