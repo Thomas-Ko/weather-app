@@ -178,7 +178,7 @@ view = {
 			default: 				img = "unknown";
 		}
 
-		$('img').attr("src", "assets/img/"+ img +".svg");
+		$('#weatherImg').attr("src", "assets/img/"+ img +".svg");
 	},
 
 	//changes display from fahrenheit to celsius and vice versa on click
