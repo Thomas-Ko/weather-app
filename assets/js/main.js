@@ -45,7 +45,7 @@ controller = {
 			type: "GET",
 
 			//looks up the user's location by ip address
-			url: "http://api.wunderground.com/api/32d6346cb727aad9/forecast/geolookup/conditions/q/autoip.json?",
+			// url: API KEY GOES HERE
 
 			dataType: "jsonp",
 
@@ -70,7 +70,7 @@ controller = {
 			type: "GET",
 
 			//looks up the user's location by ip address
-			url: "http://api.wunderground.com/api/32d6346cb727aad9/forecast/geolookup/conditions/q/" +zipcode+ ".json",
+			// url: API KEY GOES HERE/forecast/geolookup/conditions/q/" +zipcode+ ".json",
 
 			dataType: "jsonp",
 
